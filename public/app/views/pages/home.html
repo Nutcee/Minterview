@@ -1,0 +1,72 @@
+<!-- Header if not logged in -->
+<header ng-if="!main.loggedIn">
+    <div class="headercontainer">
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Schedule a mock interview </div>
+                <div class="intro-heading">improve your chances of getting hired!</div>
+                <a href="#jobseekers" class="page-scroll btn btn-xl">Tell Me More</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Header if logged in -->
+
+<header ng-if="main.loggedIn">
+    <div class="headercontainer">
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Thank you for logging in </div>
+                <div class="intro-heading">Schedule an interview now!</div>
+                <a href="/schedule" class="page-scroll btn btn-xl">Schedule now</a>
+                <a href="/editprofile" class="page-scroll btn btn-xl">Edit Your profile</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<section id="jobseekers" ng-if="!main.loggedIn">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">For the jobseekers</h2>
+                <h3 class="section-subheading text-muted">Not just a mock interview place!</h3>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-stack-1x fa-inverse">
+                            <img class="img-circle img-responsive" src="app/views/img/howto/getinterviewed.png" alt="">
+                        </i>
+                    </span>
+                <h4 class="service-heading">Get Validated</h4>
+                <p class="text-muted">Get your profile validated. Get assistance and support for resume building. Get feedback to improve your profile.</p>
+            </div>
+            <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-stack-1x fa-inverse">
+                            <img class="img-circle img-responsive" src="app/views/img/howto/getvalidated.png" alt="">
+                        </i>
+                    </span>
+                <h4 class="service-heading">Get Interviewed</h4>
+                <p class="text-muted">Get a real interview experience from seasoned interview experts and industry veterans from your preferred organizations.</p>
+            </div>
+            <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-stack-1x fa-inverse">
+                            <img class="img-circle img-responsive" src="app/views/img/howto/gethired.png" alt="">
+                        </i>
+                    </span>
+                <h4 class="service-heading">Get Hired</h4>
+                <p class="text-muted">Get your profiles submitted to the organizations of your choice and improve your chances of getting hired.</p>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,103 @@
+<html ng-app="TwitterReplica">
+    <head>
+        <base href="/">
+        <title>mInterview.me | Get mock-interviewed and get hired!</title>
+
+        <!--Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link href="app/views/css/agency.css" rel="stylesheet">
+        <link href="app/views/css/styles.css" rel="stylesheet">
+
+
+        <!-- Angular and Angular route -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.13/angular-route.min.js"></script>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+        <!-- Services -->
+        <script type="text/javascript" src="app/services/authService.js"></script>
+        <script type="text/javascript" src="app/services/userService.js"></script>
+        <script type="text/javascript" src="app/services/storyService.js"></script>
+
+        <!--Controller -->
+        <script type="text/javascript" src="app/controllers/maincontroller.js"></script>
+        <script type="text/javascript" src="app/controllers/userCtrl.js"></script>
+        <script type="text/javascript" src="app/controllers/storyCtrl.js"></script>
+
+        <!-- Directives -->
+        <script type="text/javascript" src="app/directives/reverse.js"></script>
+
+        <script type="text/javascript" src="app/app.routes.js"></script>
+
+        <script type="text/javascript" src="app/app.js"></script>
+
+        <!-- Other Scripts -->
+        <script src="//fast.eager.io/o7hw7nDjSc.js"></script>
+        <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+        <script type="text/javascript" src="app/views/javascripts/validation.js"></script>
+
+
+
+        <!-- Custom Fonts -->
+        <link href="app/views/css/font-awesome.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+
+    </head>
+
+    <body id="page-top" class="index" ng-controller="MainController as main">
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top"><!--<span class="logodarkblue">m</span>Interview<span class="logodarkblue">.me</span>-->
+                        <img src="app/views/img/minterview_logo1.png" height="30px" /></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ng-if="!main.loggedIn" class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li ng-if="!main.loggedIn">
+                            <a class="page-scroll" href="#jobseekers">Jobseekers</a>
+                        </li>
+                        <li ng-if="!main.loggedIn">
+                            <a class="page-scroll" href="#howto">How to</a>
+                        </li>
+                        <li ng-if="!main.loggedIn">
+                            <a class="page-scroll" href="/login">Login</a>
+                        </li>
+                        <li ng-if="!main.loggedIn">
+                            <a class="page-scroll" href="/signup">Register</a>
+                        </li>
+                        <li ng-if="main.loggedIn"><a href="#"> Hello {{main.user.name}}</a></li>
+                        <li ng-if="main.loggedIn">
+                            <a class="page-scroll" href="/schedule">Schedule</a>
+                        </li>
+                        <li ng-if="main.loggedIn">
+                            <a class="page-scroll" href="/editprofile">Edit Profile</a>
+                        </li>
+                        <li ng-if="main.loggedIn"><a href="#" ng-click="main.doLogout()">Logout</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+
+        <div ng-view></div>
+
+    </body>
+</html>

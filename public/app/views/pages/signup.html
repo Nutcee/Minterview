@@ -1,0 +1,23 @@
+<div class="container" ng-controller="UserCreateController as user">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1> Sign up!</h1>
+            <form method="post" ng-submit="user.signupUser()">
+                <div class="form-group"><label>Name</label> <input type="text" name="name" ng-model="user.userData.name" class="form-control"></div>
+                <div class="form-group"><label>Username</label><input type="text" name="username" ng-model="user.userData.username" class="form-control"></div>
+                <div class="form-group"><label>Password</label><span><input type="password" name="pswd" id="pswd" ng-model="user.userData.password" class="form-control"></span></div>
+                <button type="submit" class="btn btn-danger">Signup</button>
+            </form>
+            <div id="pswd_info">
+                <h4>Password must meet the following requirements:</h4>
+                <ul>
+                    <li id="letter" class="invalid">At least <strong>one letter</strong></li>
+                    <li id="capital" class="invalid">At least <strong>one capital letter</strong></li>
+                    <li id="number" class="invalid">At least <strong>one number</strong></li>
+                    <li id="length" class="invalid">Be at least <strong>8 characters</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
