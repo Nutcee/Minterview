@@ -1,5 +1,3 @@
-alert('Ingayavarbh?');
-
 $(document).ready(function() {
 $('input[id=pswd]').keyup(function() {
     // keyup code here
