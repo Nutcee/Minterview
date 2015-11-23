@@ -108,7 +108,7 @@ module.exports = function (app, express, io){
 
 		console.log("Somebody just came to our app!!");
 
-		var token = req.body.token || req.param('token') || req.headers ['x-access-token'];
+		var token = req.body.token || req.params('token') || req.headers ['x-access-token'];
 
 		if(token) {
 			jsonWebToken.verify(token, secretKey, function(err, decoded){

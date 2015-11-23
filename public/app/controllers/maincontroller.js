@@ -1,6 +1,9 @@
 /**
  * Created by Trooper on 18/11/15.
  */
+
+var error = '';
+
 angular.module('mainCtrl', [])
 
 .controller('MainController', function($rootScope, $location, Auth){
@@ -38,11 +41,11 @@ angular.module('mainCtrl', [])
                 if(data.success){
                     $location.path('/');
                 } else {
+                    error = data.message;
                     vm.error = data.message;
                 }
             });
     }
-
     vm.doLogout = function(){
         Auth.logout();
         $location.path('/logout');
