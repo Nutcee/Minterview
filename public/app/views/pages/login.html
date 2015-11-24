@@ -3,7 +3,7 @@
         <div class="col-sm-6 col-md-4 col-md-offset-4">
             <h1>Login to the app</h1>
             <form method="post" ng-submit="login.doLogin()">
-                <div class="form-group"><label>Username</label><input type="text" name="username" ng-model="login.loginData.username" class="form-control"></div>
+                <div class="form-group"><label>Email ID</label><input type="email" name="emailid" ng-model="login.loginData.emailid" class="form-control"></div>
                 <div class="form-group"><label>Password</label> <input type="password" name="password" ng-model="login.loginData.password" class="form-control"></div>
 
                 <div ng-show="login.error"><p class="text-danger">Could not login! {{login.error}}</p></div>

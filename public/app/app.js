@@ -1,4 +1,4 @@
-angular.module('TwitterReplica', ['appRoutes','mainCtrl', 'authService', 'userCtrl', 'userService', 'storyCtrl', 'storyService', 'reverseDirective'])
+angular.module('Minterview', ['appRoutes','mainCtrl', 'authService', 'userCtrl', 'userService', 'storyCtrl', 'storyService', 'reverseDirective'])
 
 .config(function($httpProvider){
     $httpProvider.interceptors.push('AuthInterceptor')

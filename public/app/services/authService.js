@@ -6,9 +6,9 @@ angular.module('authService', [])
 
     var authFactory = {};
 
-    authFactory.login = function(username, password){
+    authFactory.login = function(emailid, password){
         return $http.post('/api/login', {
-            username: username,
+            emailid: emailid,
             password: password
 
         })

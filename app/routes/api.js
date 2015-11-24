@@ -8,11 +8,11 @@ function createToken(user){
 
 	var token = jsonWebToken.sign({
 		_id: user._id,
-		name: user.name,
-		username: user.username,
+		emailid: user.emailid,
+		name: user.firstname,
 
 	}, secretKey, {
-		expiresInMinute: 1440
+		expiresInMinute: 30
 	});
 
 	return token;
@@ -38,8 +38,10 @@ module.exports = function (app, express, io){
 
 	api.post('/signup', function(req, res){
 		var user = new User({
-			name: req.body.name,
-			username: req.body.username,
+			firstname: req.body.firstname,
+			lastname: req.body.lastname,
+			emailid: req.body.emailid,
+			phone: req.body.phone,
 			password: req.body.password
 		
 		});
@@ -73,12 +75,12 @@ module.exports = function (app, express, io){
 	api.post('/login', function(req,res){
 
 		User.findOne({
-			username: req.body.username
-		}).select('name username password').exec(function(err, user){
+			emailid: req.body.emailid
+		}).select('firstname  lastname emailid password').exec(function(err, user){
 			if(err) throw err;
 
 			if(!user) {
-				res.send({message : "User does not exist"});
+				res.send({message : "Not a registered email id"});
 				console.log("User does not exist!!");
 			} else if(user){
 				var validPassword = user.comparePassword(req.body.password);
@@ -108,7 +110,7 @@ module.exports = function (app, express, io){
 
 		console.log("Somebody just came to our app!!");
 
-		var token = req.body.token || req.params('token') || req.headers ['x-access-token'];
+		var token = req.body.token || req.param('token') || req.headers ['x-access-token'];
 
 		if(token) {
 			jsonWebToken.verify(token, secretKey, function(err, decoded){
